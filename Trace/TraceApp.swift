@@ -1,10 +1,3 @@
-//
-//  TraceApp.swift
-//  Trace
-//
-//  Created by Wendi Yin on 2/7/26.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -12,10 +5,10 @@ import SwiftData
 struct TraceApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Tutorial.self,      // 注册 Tutorial
+            TraceStepModel.self // 注册 StepModel
         ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
